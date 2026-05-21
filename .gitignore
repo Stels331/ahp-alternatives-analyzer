@@ -1,0 +1,8 @@
+*.zip
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Local draft / duplicate export
+ahp_skill_final_specification.md
+README.ru.local.md
