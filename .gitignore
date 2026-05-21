@@ -6,3 +6,9 @@ __pycache__/
 # Local draft / duplicate export
 ahp_skill_final_specification.md
 README.ru.local.md
+
+# AHP analyzer projects, reports, and dashboards
+ahp_project.json
+test_project.json
+ahp_report.md
+ahp_dashboard.html

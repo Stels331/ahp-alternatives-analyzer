@@ -108,6 +108,37 @@ To check the Python module syntax:
 python3 -m py_compile ahp-skill/scripts/ahp_calculator.py
 ```
 
+## Running with Antigravity Agent
+
+The project includes an agent-tailored version of the skill in `ahp-skill-antigravity/` optimized for the **Antigravity AI agent**. 
+
+Unlike standard chat-bots, the Antigravity agent can interact with your file system and run Python scripts to automate all calculations, manage state, and build dashboards.
+
+### Project Structure (Antigravity version)
+```text
+ahp-skill-antigravity/
+  SKILL.md                         # Skill instructions for Antigravity
+  scripts/ahp_calculator.py        # Automated calculation and visualization engine
+```
+
+### How to Run
+
+1. **Initiate the Skill**: Tell the Antigravity agent in the chat:
+   > "Запусти/выполни скилл для оценки альтернатив AHP" (or in English: "Run/execute the AHP alternatives evaluation skill")
+2. **Skill Execution**: 
+   - Antigravity will automatically locate and load `ahp-skill-antigravity/SKILL.md` (reading it as a skill file).
+   - The agent will guide you step-by-step to define your project goal, criteria (with directions and threshold logic), and alternatives.
+3. **State Management**:
+   - The agent automatically saves and updates the session state in `ahp_project.json` in the workspace root. If you pause or restart the agent, it can resume the analysis from this file.
+4. **Automated Calculations**:
+   - Instead of manual mental math, the agent runs the background computation command:
+     ```bash
+     python3 ahp-skill-antigravity/scripts/ahp_calculator.py ahp_project.json
+     ```
+5. **Interactive Dashboard**:
+   - Once completed, the script generates a markdown report (`ahp_report.md`) and a premium glassmorphism interactive dashboard (`ahp_dashboard.html`).
+   - The agent will provide clickable local links (e.g. `[ahp_dashboard.html](file:///...)`) to let you explore the results and run sensitivity analysis directly in your browser.
+
 ## Recommended Scope
 
 For a first analysis, use:
