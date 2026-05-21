@@ -80,9 +80,16 @@ ahp-skill/
   SKILL.md                         # Skill instructions
   scripts/ahp_calculator.py        # Weights, CR, Pareto, and sensitivity calculations
   references/specification.md      # Detailed method specification
+
+ahp-skill-antigravity/
+  SKILL.md                         # Skill instructions for Antigravity
+  scripts/ahp_calculator.py        # Automated calculation, reports, and dashboard generation
+  references/specification.md      # Detailed method specification
 ```
 
 ## Installation
+
+### Codex / ChatGPT
 
 Copy the `ahp-skill` directory into your Codex / ChatGPT skills directory:
 
@@ -96,6 +103,37 @@ After installation, you can trigger the skill with prompts such as:
 Help me compare alternatives using AHP.
 I need to choose the best option from several alternatives.
 Run a Saaty method analysis for these alternatives.
+```
+
+### Antigravity
+
+The Antigravity version lives in `ahp-skill-antigravity/`. It is designed to be used from inside an Antigravity workspace, where the agent can read the skill file, run Python, save project state, and generate local reports.
+
+Recommended setup:
+
+```bash
+git clone https://github.com/Stels331/ahp-alternatives-analyzer.git
+cd ahp-alternatives-analyzer
+```
+
+Then ask Antigravity to use the skill file:
+
+```text
+Use ahp-skill-antigravity/SKILL.md and run the AHP alternatives evaluation workflow.
+```
+
+You can also copy `ahp-skill-antigravity/` into any workspace where you want Antigravity to run the analysis:
+
+```bash
+cp -R ahp-skill-antigravity /path/to/your/antigravity-workspace/
+```
+
+The Antigravity workflow writes its working files in the active workspace:
+
+```text
+ahp_project.json      # saved analysis state
+ahp_report.md         # generated markdown report
+ahp_dashboard.html    # generated interactive dashboard
 ```
 
 ## Running Calculations
